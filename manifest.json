@@ -1,0 +1,20 @@
+{
+	"manifest_version":2,
+	"name": "SeuHelper",
+	"version": "1.0",
+	"description": "An addin for Tieba.",
+	"browser_action": {"
+	default_icon": "icon.jpg",
+	"default_popup":"popup.html"
+	},
+	"content_scripts": [
+	    {
+	      "matches": ["http://xk.urp.seu.edu.cn/jw_css/xk/*"],
+	      "js": ["jquery-1.11.3.min.js","seuxk.js"]
+	    }
+	],
+	"permissions": [
+    "http://my404.club:3000/api/seuxk"
+  	]
+
+}
