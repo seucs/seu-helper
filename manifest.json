@@ -1,20 +1,54 @@
 {
-	"manifest_version":2,
-	"name": "SeuHelper",
-	"version": "1.0",
-	"description": "An addin for Tieba.",
-	"browser_action": {"
-	default_icon": "icon.jpg",
-	"default_popup":"popup.html"
-	},
-	"content_scripts": [
-	    {
-	      "matches": ["http://xk.urp.seu.edu.cn/jw_css/xk/*"],
-	      "js": ["jquery-1.11.3.min.js","seuxk.js"]
-	    }
-	],
-	"permissions": [
-    "http://my404.club:3000/api/seuxk"
-  	]
+  "name": "404选课助手",
+  "description": "帮助选不到课的人迅速选到课！",
+  "version": "1.2",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://xk.urp.seu.edu.cn/jw_css/xk/*"
+      ],
+      "js": [
+        "jquery.js",
+        "xk/xk.js"
+      ]
+    },
+        {
+      "matches": [
+        "http://xk.urp.seu.edu.cn/jw_css/system/showLogin.action",
+        "http://xk.urp.seu.edu.cn/studentService/system/showLogin.action"
+      ],
+      "js": [
+      "jquery.js",
+        "xk/login.js"
+      ]
+    },
 
+        {
+      "matches": [
+        "http://xk.urp.seu.edu.cn/studentService/system/toMain.action"
+      ],
+      "js": [
+      "jquery.js",
+      "exam/ExamResult.js",
+      "exam/start.js"
+      ]
+    }
+    
+  ],
+    "permissions": [
+    "http://121.42.203.161:8000/*"
+  ],
+  "web_accessible_resources": [
+    "xk/func.js",
+    "exam/ExamResult.js",
+    "exam/ExamBtn.js"
+  ]
 }
